@@ -1,0 +1,168 @@
+$blue: rgb(0, 81, 255);
+$light-blue: rgb(57, 109, 223);
+$dark-bg: rgb(23, 23, 31);
+
+.wrapper {
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+    display: flex;  
+    flex-direction: column;
+    margin: auto;
+    h3 {
+        font-weight: bold;
+        font-size: 24px;
+    }
+    .highlight {
+        flex: 1;
+        padding: 40px 30px;
+        border: 2px solid $blue;
+        border-radius: 8px;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        overflow: hidden;
+        cursor: pointer;
+        background-color: rgb(239, 246, 255);
+        filter: drop-shadow(0 0 0.4rem rgb(223, 223, 223));
+        .line {
+            height: 5px;
+            width: 50px;
+            margin: 10px 0;
+            background-color: $blue;
+        }
+        div {
+            a {
+                text-decoration: none;
+                color: black;
+            }
+            li {
+                list-style-type: none;
+                font-weight: bold;
+                font-size: 18px;
+            }
+        }    
+        @media only screen and (max-width: 700px) {
+            flex-direction: column;
+            align-items: flex-start;
+            .loaderContainer {
+                display: flex;
+                width: 100%;
+                padding: 20;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    .inner {
+        width: 100%;
+        display: flex;  
+        flex-direction: row;
+        margin: auto;
+        @media only screen and (max-width: 800px) {
+            flex-direction: column;
+        }
+        @media only screen and (max-width: 600px) {
+            flex-direction: column;
+        }
+        .list {
+            flex: 1;
+            padding: 80px 30px;
+            border-radius: 10px;
+            .row {
+                display: flex;
+                flex-direction: row;
+                border-bottom: 1px solid rgb(214, 214, 214);
+                padding: 10px;
+                margin-top: 10px;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                &:hover {
+                    border-bottom: 1px solid $blue;
+                    color: $blue;
+                }
+            }
+        }
+        .rankings {
+            flex: 1;
+            padding: 80px 30px;
+            border-radius: 10px;
+            .row {
+                display: flex;
+                flex-direction: row;
+                border-bottom: 1px solid rgb(214, 214, 214);
+                padding: 10px;
+                margin-top: 10px;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                &:hover {
+                    border-bottom: 1px solid $blue;
+                    color: $blue;
+                }
+                a {
+                    text-decoration: none;
+                    color: black;
+                    font-weight: bold;
+                }
+            }
+        }
+        .list .directory, .rankings .directory {
+            margin-top: 20px;
+        }
+    }
+}
+
+.darkContainer {
+    background-color: $dark-bg;
+    h3 {
+        color: white;
+    }
+    .wrapper {
+        .highlight {
+            background-color: rgb(20, 20, 20);
+            filter: drop-shadow(0 0 0.5rem rgb(8, 10, 36));
+            color: white;
+            border: 2px solid $light-blue;
+            .line {
+                background-color: $light-blue;
+            }
+            div {
+                a {
+                    color: white;
+                }
+            }   
+        }
+        .inner {
+            .list {
+                .row {
+                    border-bottom: 1px solid rgb(170, 170, 170);
+                    color: white;
+                    a {
+                        color: rgb(255, 255, 255);
+                    }
+                    &:hover {
+                        border-bottom: 1px solid $light-blue;
+                        color: $light-blue;
+                    }
+                }
+            }
+            .rankings {
+                .row {
+                    border-bottom: 1px solid rgb(170, 170, 170);
+                    color: white;
+                    a {
+                        color: rgb(255, 255, 255);
+                    }
+                    &:hover {
+                        border-bottom: 1px solid $light-blue;
+                        color: $light-blue;
+                    }
+                }
+            }
+        }
+    }
+}

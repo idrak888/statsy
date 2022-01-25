@@ -1,0 +1,113 @@
+.wrapper {
+  width: 100%;
+  max-width: 1100px;
+  padding: 20px;
+  padding-bottom: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.wrapper div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 20px;
+}
+
+.wrapper div h3 {
+  font-weight: bold;
+  font-size: 24px;
+  margin-left: 20px;
+}
+
+.wrapper div h4 {
+  font-weight: bold;
+  color: black;
+  font-size: 18px;
+  margin-top: -10px;
+}
+
+.wrapper div label {
+  margin-left: 20px;
+}
+
+.wrapper div a {
+  text-decoration: none;
+  color: #0051ff;
+}
+
+.wrapper .banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 300px;
+  overflow: hidden;
+}
+
+.wrapper .banner img, .wrapper .banner iframe {
+  border-radius: 10px;
+  margin: 5px;
+  -webkit-filter: drop-shadow(0 0 0.4rem #dfdfdf);
+          filter: drop-shadow(0 0 0.4rem #dfdfdf);
+}
+
+.wrapper .banner iframe {
+  outline: 2px solid #0051ff;
+}
+
+@media only screen and (max-width: 900px) {
+  .wrapper .banner {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: auto;
+  }
+  .wrapper .banner img, .wrapper .banner iframe {
+    border-radius: 3px;
+  }
+}
+
+.darkContainer {
+  background-color: #17171f;
+  color: white;
+}
+
+.darkContainer .wrapper div h4 {
+  color: white;
+}
+
+.darkContainer .wrapper div a {
+  color: #396ddf;
+}
+
+.darkContainer .banner img, .darkContainer .banner iframe {
+  -webkit-filter: drop-shadow(0 0 0.4rem #080a24);
+          filter: drop-shadow(0 0 0.4rem #080a24);
+}
+/*# sourceMappingURL=EcoData.module.css.map */
