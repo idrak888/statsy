@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head'
-import Link from 'next/link';
 import styles from '/styles/Home/Home.module.css'
 import Header from '/components/Header';
 import { Button, Tabs, Tab, FloatingLabel, Form, SSRProvider } from 'react-bootstrap';
@@ -16,9 +15,7 @@ const Home = ({ countries }) => {
 	useEffect(() => {
 		setDarkMode(JSON.parse(sessionStorage.getItem("dark_mode")));
 		setRandomHighlight();
-		fetchData().then(() => {
-			console.log(gdpRankings);
-		});
+		fetchData();
     }, [countries]);
 
 	const fetchData = async () => {
@@ -39,8 +36,12 @@ const Home = ({ countries }) => {
 
 	const setRandomHighlight = () => {
 		setHighlightDoc(null);
-		const random = countries[Math.floor(Math.random() * 250)];
-
+		var random = countries[Math.floor(Math.random() * 250)];
+		
+		if (random.name.length > 15) {
+			random = countries[Math.floor(Math.random() * 250)];
+		}
+		
 		setHighlight(random);
 		fetchMoreData(random);
 	}
@@ -72,10 +73,10 @@ const Home = ({ countries }) => {
 								<h3 style={{fontSize: 18}}>{highlight.capital}</h3>
 								<br/>
 								<span style={darkMode ? {color: "white", fontSize: 14} : {color: "grey", fontSize: 14}}>Economic group(s)</span>
-								<div dangerouslySetInnerHTML={{ __html: highlightDoc.profile.country_group }} />
+								<div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: highlightDoc.profile ? highlightDoc.profile.country_group : "N/A" }} />
 								<br/>
 								<span style={darkMode ? {color: "white", fontSize: 14} : {color: "grey", fontSize: 14}}>GDP</span>
-								<h3 style={{fontSize: 18}}><div dangerouslySetInnerHTML={{ __html: highlightDoc.gdp.gdp }} /></h3>
+								<h3 style={{fontSize: 18}}><div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: highlightDoc.gdp.gdp }} /></h3>
 							</div>
 						: 
 							<div className={styles.loaderContainer}>
@@ -105,15 +106,15 @@ const Home = ({ countries }) => {
 								gdpRankings ? 
 								<Tabs defaultActiveKey="gdp" id="uncontrolled-tab-example" className="mb-3">
 									<Tab eventKey="gdp" title="GDP">
-										<h3>GDP rankings (US$ million) </h3>
+										<h3>GDP rankings {gdpRankings[0].year} (US$ million) </h3>
 										<div className={styles.directory}>
 											{gdpRankings.map((doc, index) => {
 												return (
 													<div key={index} className={styles.row}>
 														{index + 1}
-														<div dangerouslySetInnerHTML={{ __html: doc.country }} />
-														<span style={{fontSize: 12}}>{doc.year}</span>
-														<span style={{color: "grey", fontSize: 12}}>{doc.region}</span>
+														<div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: doc.country }} />
+														<span style={{fontSize: 12}}><div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: doc.estimate }} /></span>
+														<span>{doc.region}</span>
 													</div>
 												)
 											})}
@@ -127,9 +128,9 @@ const Home = ({ countries }) => {
 													return (
 														<div key={index} className={styles.row}>
 															{index + 1}
-															<div dangerouslySetInnerHTML={{ __html: doc.country.replace("*", "") }} />
+															<div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: doc.country.replace("*", "") }} />
 															<span style={{fontSize: 12}}>{doc.estimate}</span>
-															<span style={{color: "grey", fontSize: 12}}><div dangerouslySetInnerHTML={{ __html: doc.region }} /></span>
+															<span><div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: doc.region }} /></span>
 														</div>
 													)
 												})

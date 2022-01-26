@@ -188,6 +188,14 @@
   text-decoration: none;
   color: black;
   font-weight: bold;
+  font-size: 12px;
+}
+
+.wrapper .inner .rankings .row span {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 12px;
 }
 
 .wrapper .inner .list .directory, .wrapper .inner .rankings .directory {
@@ -224,7 +232,15 @@
 }
 
 .darkContainer .wrapper .inner .list .row a {
+  text-decoration: none;
   color: white;
+  font-weight: bold;
+}
+
+.darkContainer .wrapper .inner .list .row span {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
 }
 
 .darkContainer .wrapper .inner .list .row:hover {
@@ -238,7 +254,15 @@
 }
 
 .darkContainer .wrapper .inner .rankings .row a {
+  text-decoration: none;
   color: white;
+  font-weight: bold;
+}
+
+.darkContainer .wrapper .inner .rankings .row span {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
 }
 
 .darkContainer .wrapper .inner .rankings .row:hover {

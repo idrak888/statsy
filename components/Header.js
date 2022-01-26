@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import Image from 'next/image';
-import Link from 'next/link';
 import logo from '/public/assets/logo.png';
 import logo_white from '/public/assets/logo_white.png';
 import styles from '/styles/Header/Header.module.css';
@@ -26,7 +25,7 @@ export default function Header(props) {
                     window.location = "/";
                 }} href="/" style={{marginTop: 5}}><Image width={120} height={38.4} src={darkMode ? logo_white : logo}/></Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link style={darkMode ? { color: "white" } : {}} className={styles.link}>API Information</Nav.Link>
+                    <Nav.Link href="/info" style={darkMode ? { color: "white" } : {}} className={styles.link}>API Information</Nav.Link>
                 </Nav>
                 <Nav>
                     <div className={styles.switchWrapper}>

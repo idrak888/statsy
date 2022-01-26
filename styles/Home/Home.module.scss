@@ -107,6 +107,13 @@ $dark-bg: rgb(23, 23, 31);
                     text-decoration: none;
                     color: black;
                     font-weight: bold;
+                    font-size: 12px;
+                }
+                span {
+                    text-decoration: none;
+                    color: black;
+                    font-weight: bold;
+                    font-size: 12px;
                 }
             }
         }
@@ -142,7 +149,14 @@ $dark-bg: rgb(23, 23, 31);
                     border-bottom: 1px solid rgb(170, 170, 170);
                     color: white;
                     a {
+                        text-decoration: none;
                         color: rgb(255, 255, 255);
+                        font-weight: bold;
+                    }
+                    span {
+                        text-decoration: none;
+                        color: rgb(255, 255, 255);
+                        font-weight: bold;
                     }
                     &:hover {
                         border-bottom: 1px solid $light-blue;
@@ -155,7 +169,14 @@ $dark-bg: rgb(23, 23, 31);
                     border-bottom: 1px solid rgb(170, 170, 170);
                     color: white;
                     a {
+                        text-decoration: none;
                         color: rgb(255, 255, 255);
+                        font-weight: bold;
+                    }
+                    span {
+                        text-decoration: none;
+                        color: rgb(255, 255, 255);
+                        font-weight: bold;
                     }
                     &:hover {
                         border-bottom: 1px solid $light-blue;
