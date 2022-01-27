@@ -36,7 +36,7 @@ const EcoData = ({ country, countryData }) => {
 					<div>
 						<div className={styles.wrapper}>
 							<div>
-								<h3><Button onClick={() => window.location = "/"} style={{borderRadius: 3, fontSize: 12, marginRight: 10, marginLeft: 10}} variant="primary">Back</Button> Economy of {countryData[0].name.common == "Macau" && country == "China" ? countryData[1].name.common : countryData[0].name.common} {countryData[0].name.common == "Macau" && country == "China" ? countryData[1].flag : countryData[0].flag}</h3>
+								<h3><Button onClick={() => window.location = "/"} variant="primary">Back</Button> Economy of {countryData[0].name.common == "Macau" && country == "China" ? countryData[1].name.common : countryData[0].name.common} {countryData[0].name.common == "Macau" && country == "China" ? countryData[1].flag : countryData[0].flag}</h3>
 								<div className={styles.banner}>
 									<img src={data.profile.cover_image} style={{flex: 1, height: '100%'}}/>
 									<iframe

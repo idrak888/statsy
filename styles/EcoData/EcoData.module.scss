@@ -13,9 +13,25 @@ $dark-bg: rgb(23, 23, 31);
     @media only screen and (max-width: 800px) {
         flex-direction: column;
     }
+    @media only screen and (max-width: 700px) {
+        padding: 10px;
+        padding-bottom: 200px;
+    }
+    Button {  
+        border-radius: 3;
+        font-size: 12; 
+        margin: 0 10px;
+        @media only screen and (max-width: 700px) {
+            display: block;
+            margin: 10px 0;
+        }
+    }
     div {
         flex: 1;
         padding: 20px;
+        @media only screen and (max-width: 700px) {
+            padding: 10px;
+        }
         h3 {
             font-weight: bold;
             font-size: 24px;

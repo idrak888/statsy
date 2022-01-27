@@ -70,7 +70,10 @@ $dark-bg: rgb(23, 23, 31);
         .list {
             flex: 1;
             padding: 80px 30px;
-            border-radius: 10px;
+            border-radius: 10px;  
+            @media only screen and (max-width: 700px) {
+                padding: 70px 0px;
+            }
             .row {
                 display: flex;
                 flex-direction: row;
@@ -89,7 +92,10 @@ $dark-bg: rgb(23, 23, 31);
         .rankings {
             flex: 1;
             padding: 80px 30px;
-            border-radius: 10px;
+            border-radius: 10px;   
+            @media only screen and (max-width: 700px) {
+                padding: 70px 0px;
+            }
             .row {
                 display: flex;
                 flex-direction: row;

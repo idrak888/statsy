@@ -76,7 +76,7 @@ const Home = ({ countries }) => {
 								<div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: highlightDoc.profile ? highlightDoc.profile.country_group : "N/A" }} />
 								<br/>
 								<span style={darkMode ? {color: "white", fontSize: 14} : {color: "grey", fontSize: 14}}>GDP</span>
-								<h3 style={{fontSize: 18}}><div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: highlightDoc.gdp.gdp }} /></h3>
+								<h3 style={{fontSize: 18}}><div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: highlightDoc.gdp ? highlightDoc.gdp.gdp : "N/A" }} /></h3>
 							</div>
 						: 
 							<div className={styles.loaderContainer}>

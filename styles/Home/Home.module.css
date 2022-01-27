@@ -126,6 +126,12 @@
   border-radius: 10px;
 }
 
+@media only screen and (max-width: 700px) {
+  .wrapper .inner .list {
+    padding: 70px 0px;
+  }
+}
+
 .wrapper .inner .list .row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -157,6 +163,12 @@
           flex: 1;
   padding: 80px 30px;
   border-radius: 10px;
+}
+
+@media only screen and (max-width: 700px) {
+  .wrapper .inner .rankings {
+    padding: 70px 0px;
+  }
 }
 
 .wrapper .inner .rankings .row {
