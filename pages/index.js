@@ -36,11 +36,48 @@ const Home = ({ countries }) => {
 
 	const setRandomHighlight = () => {
 		setHighlightDoc(null);
-		var random = countries[Math.floor(Math.random() * 250)];
-		
-		if (random.name.length > 15) {
-			random = countries[Math.floor(Math.random() * 250)];
-		}
+		const highlightlist = countries.filter(doc => {
+			return (
+				doc.alpha2Code == "DK" ||
+				doc.alpha2Code == "LK" ||
+				doc.alpha2Code == "AU" ||
+				doc.alpha2Code == "SP" ||
+				doc.alpha2Code == "IN" ||
+				doc.alpha2Code == "FR" ||
+				doc.alpha2Code == "DE" ||
+				doc.alpha2Code == "BR" ||
+				doc.alpha2Code == "CA" ||
+				doc.alpha2Code == "MY" ||
+				doc.alpha2Code == "CH" ||
+				doc.alpha2Code == "SE" ||
+				doc.alpha2Code == "JP" ||
+				doc.alpha2Code == "EG" ||
+				doc.alpha2Code == "BD" ||
+				doc.alpha2Code == "CN" ||
+				doc.alpha2Code == "KW" ||
+				doc.alpha2Code == "MX" ||
+				doc.alpha2Code == "SA" ||
+				doc.alpha2Code == "KH" ||
+				doc.alpha2Code == "PH" ||
+				doc.alpha2Code == "TW" ||
+				doc.alpha2Code == "LT" ||
+				doc.alpha2Code == "SV" ||
+				doc.alpha2Code == "AR" ||
+				doc.alpha2Code == "CO" ||
+				doc.alpha2Code == "JM" ||
+				doc.alpha2Code == "HU" ||
+				doc.alpha2Code == "BE" ||
+				doc.alpha2Code == "ID" ||
+				doc.alpha2Code == "FI" ||
+				doc.alpha2Code == "NG" ||
+				doc.alpha2Code == "AT" ||
+				doc.alpha2Code == "TH" 
+			);
+		});
+
+		console.log(highlightlist);
+
+		var random = highlightlist[Math.floor(Math.random() * 33)];
 		
 		setHighlight(random);
 		fetchMoreData(random);
@@ -111,10 +148,10 @@ const Home = ({ countries }) => {
 											{gdpRankings.map((doc, index) => {
 												return (
 													<div key={index} className={styles.row}>
-														{index + 1}
-														<div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: doc.country }} />
-														<span style={{fontSize: 12}}><div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: doc.estimate }} /></span>
-														<span>{doc.region}</span>
+														<span style={{flex: 1}}>{index + 1}</span>
+														<div style={{flex: 4}} onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: doc.country }} />
+														<span style={{fontSize: 12, flex: 3}}><div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: doc.estimate }} /></span>
+														<span style={{flex: 3}}>{doc.region}</span>
 													</div>
 												)
 											})}
@@ -127,15 +164,15 @@ const Home = ({ countries }) => {
 												gdpPerCapita ? gdpPerCapita.map((doc, index) => {
 													return (
 														<div key={index} className={styles.row}>
-															{index + 1}
-															<div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: doc.country.replace("*", "") }} />
-															<span style={{fontSize: 12}}>{doc.estimate}</span>
-															<span><div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: doc.region }} /></span>
+														<span style={{flex: 1}}>{index + 1}</span>
+															<div style={{flex: 4}} onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: doc.country.replace("*", "") }} />
+															<span style={{fontSize: 12, flex: 3}}>{doc.estimate}</span>
+															<span style={{flex: 3}}><div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: doc.region }} /></span>
 														</div>
 													)
 												})
 												:
-												<div style={{display: "flex", justifyContent: "center"}}>
+												<div style={{display: "flex", justifyContent: "center", marginTop: 100}}>
 													<img src="https://cutewallpaper.org/21/loading-gif-transparent-background/Tag-For-Loading-Bar-Gif-Transparent-Loading-Gif-.gif" width={25}/>
 												</div>
 											}
@@ -143,7 +180,7 @@ const Home = ({ countries }) => {
 									</Tab>
 								</Tabs>
 								:
-								<div style={{display: "flex", justifyContent: "center"}}>
+								<div style={{display: "flex", justifyContent: "center", marginTop: 200}}>
 									<img src="https://cutewallpaper.org/21/loading-gif-transparent-background/Tag-For-Loading-Bar-Gif-Transparent-Loading-Gif-.gif" width={25}/>
 								</div>
 							}

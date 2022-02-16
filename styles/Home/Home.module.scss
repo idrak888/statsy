@@ -51,6 +51,7 @@ $dark-bg: rgb(23, 23, 31);
                 display: flex;
                 width: 100%;
                 padding: 20;
+                margin: 20px 0;
                 justify-content: center;
                 align-items: center;
             }
@@ -102,7 +103,7 @@ $dark-bg: rgb(23, 23, 31);
                 border-bottom: 1px solid rgb(214, 214, 214);
                 padding: 10px;
                 margin-top: 10px;
-                justify-content: space-between;
+                justify-content: flex-start;
                 align-items: center;
                 cursor: pointer;
                 &:hover {

@@ -79,6 +79,7 @@
     display: flex;
     width: 100%;
     padding: 20;
+    margin: 20px 0;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -182,9 +183,9 @@
   border-bottom: 1px solid #d6d6d6;
   padding: 10px;
   margin-top: 10px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
