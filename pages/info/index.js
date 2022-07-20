@@ -33,11 +33,11 @@ const Info = () => {
 					<br/>
 
 					<br/>
-					<p style={{fontWeight: "bold"}}>GDP/GDP per capita ranks:</p>
-					<p><em>Data scraped from: </em></p>
-					<a href="https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal)">Wikipedia List of countries by GDP (nominal)</a>
+					<p style={{fontWeight: "bold"}}>GDP/GNI per capita/Population ranks:</p>
+					<p><em>Data from: </em></p>
+					<a href="https://datahelpdesk.worldbank.org/knowledgebase/topics/125589-developer-information">World Bank API</a>
 					<br/>
-					<a href="https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal)_per_capita">Wikipedia List of countries by GDP (nominal) per capita</a>
+					<a href="http://datatopics.worldbank.org/world-development-indicators/">Wordl</a>
 				</div>
 			</div>
 		</div>

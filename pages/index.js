@@ -7,8 +7,9 @@ import { Button, Tabs, Tab, FloatingLabel, Form, SSRProvider } from 'react-boots
 const Home = ({ countries }) => {
     const [highlight, setHighlight] = useState({});
 	const [highlightDoc, setHighlightDoc] = useState(null);
-	const [gdpPerCapita, setGdpPerCapita] = useState(null);
+	const [gnipercapita, setgnipercapita] = useState(null);
 	const [gdpRankings, setGdpRankings] = useState(null);
+	const [popRankings, setPopRankings] = useState(null);
 	const [search, setSearch] = useState("");
 	const [darkMode, setDarkMode] = useState(false);
 
@@ -19,13 +20,33 @@ const Home = ({ countries }) => {
     }, [countries]);
 
 	const fetchData = async () => {
-		const res = await fetch(`https://us-central1-statsy-417f5.cloudfunctions.net/v1/gdp_rankings`);
-		const data = await res.json();
-		setGdpRankings(data);
+		const gdpRes = await fetch(`https://api.worldbank.org/v2/country/indicator/NY.GDP.MKTP.CD?date=2021&page=1&format=json&per_page=266`);
+		var gdpData = await gdpRes.json();
+		gdpData = gdpData[1].slice(49);
 
-		const res2 = await fetch(`https://us-central1-statsy-417f5.cloudfunctions.net/v1/gdp_per_capita_rankings`);
-		const data2 = await res2.json();
-		setGdpPerCapita(data2);
+		gdpData = gdpData.sort((a, b) => b.value - a.value).slice(0, 50);
+
+		setGdpRankings(gdpData);
+
+		const gniRes = await fetch(`https://api.worldbank.org/v2/country/indicator/NY.GNP.PCAP.CD?date=2021&page=1&format=json&per_page=266`);
+		var gniData = await gniRes.json();
+		gniData = gniData[1].slice(49);
+
+		gniData = gniData.sort((a, b) => b.value - a.value).slice(0, 50);
+
+		setgnipercapita(gniData);
+
+		const popRes = await fetch(`https://api.worldbank.org/v2/country/indicator/SP.POP.TOTL?date=2021&page=1&format=json&per_page=266`);
+		var popData = await popRes.json();
+		popData = popData[1].slice(49);
+
+		popData = popData.sort((a, b) => b.value - a.value).slice(0, 50);
+
+		setPopRankings(popData);
+
+		console.log(gdpData);
+		console.log(gniData);
+		console.log(popData);
 	}
 
 	const fetchMoreData = async random => {
@@ -49,7 +70,6 @@ const Home = ({ countries }) => {
 				doc.alpha2Code == "CA" ||
 				doc.alpha2Code == "MY" ||
 				doc.alpha2Code == "CH" ||
-				doc.alpha2Code == "SE" ||
 				doc.alpha2Code == "JP" ||
 				doc.alpha2Code == "EG" ||
 				doc.alpha2Code == "BD" ||
@@ -75,9 +95,7 @@ const Home = ({ countries }) => {
 			);
 		});
 
-		console.log(highlightlist);
-
-		var random = highlightlist[Math.floor(Math.random() * 33)];
+		var random = highlightlist[Math.floor(Math.random() * 32)];
 		
 		setHighlight(random);
 		fetchMoreData(random);
@@ -140,34 +158,30 @@ const Home = ({ countries }) => {
 						</div>
 						<div className={styles.rankings}>
 							{
-								gdpRankings ? 
+								popRankings ? 
 								<Tabs defaultActiveKey="gdp" id="uncontrolled-tab-example" className="mb-3">
 									<Tab eventKey="gdp" title="GDP">
-										<h3>GDP rankings {gdpRankings[0].year} (US$ million) </h3>
+										<h3>GDP rankings 2021</h3>
 										<div className={styles.directory}>
 											{gdpRankings.map((doc, index) => {
 												return (
 													<div key={index} className={styles.row}>
-														<span style={{flex: 1}}>{index + 1}</span>
-														<div style={{flex: 4}} onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: doc.country }} />
-														<span style={{fontSize: 12, flex: 3}}><div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: doc.estimate }} /></span>
-														<span style={{flex: 3}}>{doc.region}</span>
+														<span style={{flex: 1}}>{index + 1} {doc.country.value}</span>
+														<p>US$ {doc.value}</p>
 													</div>
 												)
 											})}
 										</div>
 									</Tab>
-									<Tab eventKey="gdppercapita" title="GDP per Capita">
-										<h3>GDP per capita rankings (US$) </h3>
+									<Tab eventKey="gnipercapita" title="GNI per Capita">
+										<h3>GNI per capita rankings</h3>
 										<div className={styles.directory}>
 											{
-												gdpPerCapita ? gdpPerCapita.map((doc, index) => {
+												gnipercapita ? gnipercapita.map((doc, index) => {
 													return (
 														<div key={index} className={styles.row}>
-														<span style={{flex: 1}}>{index + 1}</span>
-															<div style={{flex: 4}} onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: doc.country.replace("*", "") }} />
-															<span style={{fontSize: 12, flex: 3}}>{doc.estimate}</span>
-															<span style={{flex: 3}}><div onClick={e => e.preventDefault()} dangerouslySetInnerHTML={{ __html: doc.region }} /></span>
+															<span style={{flex: 1}}>{index + 1} {doc.country.value}</span>
+															<p>US$ {doc.value}</p>
 														</div>
 													)
 												})
@@ -176,6 +190,19 @@ const Home = ({ countries }) => {
 													<img src="https://cutewallpaper.org/21/loading-gif-transparent-background/Tag-For-Loading-Bar-Gif-Transparent-Loading-Gif-.gif" width={25}/>
 												</div>
 											}
+										</div>
+									</Tab>
+									<Tab eventKey="population" title="Population">
+										<h3>Population rankings 2021</h3>
+										<div className={styles.directory}>
+											{popRankings.map((doc, index) => {
+												return (
+													<div key={index} className={styles.row}>
+														<span style={{flex: 1}}>{index + 1} {doc.country.value}</span>
+														<p>{doc.value}</p>
+													</div>
+												)
+											})}
 										</div>
 									</Tab>
 								</Tabs>
