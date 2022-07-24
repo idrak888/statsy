@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head'
 import styles from '/styles/Home/Home.module.css'
 import Header from '/components/Header';
+import MessageBox from '../components/MessageBox';
 import { Button, Tabs, Tab, FloatingLabel, Form, SSRProvider } from 'react-bootstrap';
 
 const Home = ({ countries }) => {
@@ -101,7 +102,14 @@ const Home = ({ countries }) => {
 		fetchMoreData(random);
 	}
 
-	const redirect = country => window.location = `/${country}`;
+	const redirect = country => {
+		if (country == "United Kingdom of Great Britain and Northern Ireland") {
+			country = "England"
+			window.location = `/${country}`;
+		} else {
+			window.location = `/${country}`;
+		}	
+	}
 
   	return (
 		<SSRProvider>
@@ -112,6 +120,7 @@ const Home = ({ countries }) => {
 					<link rel="icon" href="/bolt.png" />
 				</Head>
 				<Header darkModeToggle={() => setDarkMode(!darkMode)}/>
+				<MessageBox/>
 				<br/>
 				<div className={styles.wrapper}>
 					<h3>Highlight Economy <Button onClick={setRandomHighlight} style={{borderRadius: 3, marginLeft: 10}} variant="primary">Refresh</Button></h3>

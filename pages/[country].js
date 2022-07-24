@@ -16,6 +16,7 @@ const EcoData = ({ country, countryData }) => {
     }, [country]);
 
 	const fetchData = async () => {
+		console.log(country);
 		const res = await fetch(`https://us-central1-statsy-417f5.cloudfunctions.net/v1/eco_data?country=${country}`);
     	const data = await res.json();
 		setData(data);
@@ -25,7 +26,7 @@ const EcoData = ({ country, countryData }) => {
 		<SSRProvider>
 			<div className={darkMode ? `${styles.container} ${styles.darkContainer}` : styles.container}>
 				<Head>
-					<title>{countryData[0].name.common == "Macau" && country == "China" ? "China" : countryData[0].name.common} | Directory of Economies</title>
+					<title>{countryData[0] ? countryData[0].name.common == "Macau" && country == "China" ? "China" : countryData[0].name.common : "N/A"} | Directory of Economies</title>
 					<meta name="description" content="Directory of Economies" />
 					<link rel="icon" href="/bolt.png" />
 				</Head>
