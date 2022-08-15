@@ -106,10 +106,6 @@ $dark-bg: rgb(23, 23, 31);
                 justify-content: flex-start;
                 align-items: center;
                 cursor: pointer;
-                &:hover {
-                    border-bottom: 1px solid $blue;
-                    color: $blue;
-                }
                 a {
                     text-decoration: none;
                     color: black;
@@ -121,6 +117,13 @@ $dark-bg: rgb(23, 23, 31);
                     color: black;
                     font-weight: bold;
                     font-size: 14px;
+                }
+                &:hover {
+                    border-bottom: 1px solid $light-blue;
+                    color: $light-blue;
+                    span {
+                        color: $light-blue;
+                    }
                 }
             }
         }
@@ -188,6 +191,9 @@ $dark-bg: rgb(23, 23, 31);
                     &:hover {
                         border-bottom: 1px solid $light-blue;
                         color: $light-blue;
+                        span {
+                            color: $light-blue;
+                        }
                     }
                 }
             }

@@ -192,11 +192,6 @@
   cursor: pointer;
 }
 
-.wrapper .inner .rankings .row:hover {
-  border-bottom: 1px solid #0051ff;
-  color: #0051ff;
-}
-
 .wrapper .inner .rankings .row a {
   text-decoration: none;
   color: black;
@@ -209,6 +204,15 @@
   color: black;
   font-weight: bold;
   font-size: 14px;
+}
+
+.wrapper .inner .rankings .row:hover {
+  border-bottom: 1px solid #396ddf;
+  color: #396ddf;
+}
+
+.wrapper .inner .rankings .row:hover span {
+  color: #396ddf;
 }
 
 .wrapper .inner .list .directory, .wrapper .inner .rankings .directory {
@@ -280,6 +284,10 @@
 
 .darkContainer .wrapper .inner .rankings .row:hover {
   border-bottom: 1px solid #396ddf;
+  color: #396ddf;
+}
+
+.darkContainer .wrapper .inner .rankings .row:hover span {
   color: #396ddf;
 }
 /*# sourceMappingURL=Home.module.css.map */
