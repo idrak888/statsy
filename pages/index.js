@@ -177,7 +177,7 @@ const Home = ({ countries }) => {
 											{popRankings.map((doc, index) => {
 												return (
 													<div onClick={() => redirect(doc.country.value)} key={index} className={styles.row}>
-														<span style={{flex: 1}}>{index + 1} {doc.country.value}</span>
+														<span style={{flex: 1}}>{index + 1}. {doc.country.value}</span>
 														<p>{doc.value}</p>
 													</div>
 												)
