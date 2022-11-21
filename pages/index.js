@@ -88,6 +88,8 @@ const Home = ({ countries }) => {
 					<title>Statsy | Directory of Economies</title>
 					<meta name="description" content="Directory of Economies" />
 					<link rel="icon" href="/bolt.png" />
+					<link rel="shortcut icon" href="/bolt_white.png" />
+    				<link rel="apple-touch-icon" href="/bolt_white.png" />
 				</Head>
 				<Header darkModeToggle={() => setDarkMode(!darkMode)}/>
 				<MessageBox/>
