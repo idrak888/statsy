@@ -29,12 +29,12 @@ export default function Header(props) {
                 </Nav>
                 <Nav>
                     <div className={styles.switchWrapper}>
-                        <img width="30" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/118/sun-with-face_1f31e.png"/>
+                        <span style={{fontSize: 28}}>☀️</span>
                         <label className={styles.switch}>
                             <input type="checkbox" checked={darkMode} onChange={toggleDarkMode}/>
                             <span className={`${styles.slider} ${styles.round}`}></span>
                         </label>
-                        <img width="30" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/285/crescent-moon_1f319.png"/>
+                        <span style={{fontSize: 28}}>🌙</span>
                     </div>
                 </Nav>
             </Container>
